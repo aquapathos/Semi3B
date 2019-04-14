@@ -60,3 +60,12 @@ apt-get -q -y install xvfb > /dev/null
 add-apt-repository ppa:gnome3-team/gnome3  > /dev/null
 apt-get update > /dev/null
 apt-get install epiphany-browser > /dev/null
+
+# Ngrok
+mkdir -p /content/.vnc
+curl -fsSL -O https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+rm /opt/ngrok
+unzip -d /opt ngrok-stable-linux-amd64.zip
+rm ngrok-stable-linux-amd64.zip 
+echo "web_addr: 4045" > /content/config.yml
+
