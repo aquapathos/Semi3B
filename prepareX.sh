@@ -58,7 +58,6 @@ apt-get -q -y install xvfb > /dev/null
 
 # Web ブラウザ（Epiphany）
 add-apt-repository ppa:gnome3-team/gnome3  > /dev/null
-apt-get update > /dev/null
 apt-get install epiphany-browser > /dev/null
 
 # Ngrok
