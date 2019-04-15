@@ -55,8 +55,9 @@ cd ${CWD}
 apt-get -q -y install xvfb > /dev/null
 
 # Web ブラウザ（Epiphany）
-add-apt-repository ppa:gnome3-team/gnome3  > /dev/null
-apt-get install epiphany-browser > /dev/null
+add-apt-repository -r -y ppa:gnome3-team/gnome3 > /dev/null
+add-apt-repository -y ppa:gnome3-team/gnome3 > /dev/null
+apt-get -q -y install epiphany-browser > /dev/null
 
 # Ngrok
 mkdir -p /content/.vnc
