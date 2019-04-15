@@ -26,8 +26,6 @@ ln -s /opt/noVNC/vnc_lite.html /opt/noVNC/index.html
 cd /opt/websockify
 make  > /dev/null
 
-cd ${CWD}
-
 # X11
 apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
