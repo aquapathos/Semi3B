@@ -1,4 +1,3 @@
-%cd /tmp
 apt-get update && apt install -y --no-install-recommends libgtkglext1 libpango1.0-0 libpangox-1.0-0
 
 # VIRTUALGL_VERSION=2.6.1
@@ -48,7 +47,7 @@ apt install -y --no-install-recommends \
         xfonts-base \
         xkb-data \
         openbox \
-        guake \
+        scrot \
         xterm \
         xvfb \
         x11vnc \
