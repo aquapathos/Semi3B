@@ -52,7 +52,7 @@ apt-get update && apt-get install -y --no-install-recommends \
 cd ${CWD}
 
 # Xvfb (仮想ディスプレイ)
-apt-get -q -y install xvfb > /dev/null
+# apt-get -q -y install xvfb > /dev/null
 
 # Web ブラウザ（Epiphany）
 add-apt-repository -r -y ppa:gnome3-team/gnome3 > /dev/null
