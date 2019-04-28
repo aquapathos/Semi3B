@@ -35,7 +35,6 @@ make  > /dev/null
 # X11 
 apt install -y --no-install-recommends \
         ca-certificates \
-        # curl \
         vim.tiny \
         nano \
         libc6-dev \
@@ -57,6 +56,9 @@ apt install -y --no-install-recommends \
     > /dev/null
     
 cd ${CWD}
+
+
+#         curl \
 
 # Xvfb (仮想ディスプレイ)
 # apt-get -q -y install xvfb > /dev/null
