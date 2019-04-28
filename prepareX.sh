@@ -35,7 +35,7 @@ make  > /dev/null
 # X11 
 apt install -y --no-install-recommends \
         ca-certificates \
-        curl \
+        # curl \
         vim.tiny \
         nano \
         libc6-dev \
@@ -74,3 +74,11 @@ unzip -d /opt ngrok-stable-linux-amd64.zip
 rm ngrok-stable-linux-amd64.zip 
 echo "web_addr: 4045" > /content/config.yml
 
+# Xmodmap
+cat << EOS > ~/.Xmodmap
+keycode 111 = Up
+keycode 116 = Down
+keycode 113 = Left
+keycode 114 = Right
+EOS
+xmodmap ~/.Xmodmap
