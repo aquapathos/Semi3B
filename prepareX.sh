@@ -53,6 +53,7 @@ apt install -y --no-install-recommends \
         xtightvncviewer \
         mesa-utils \
         python-opengl \
+        xfce4-terminal \
     > /dev/null
     
 cd ${CWD}
