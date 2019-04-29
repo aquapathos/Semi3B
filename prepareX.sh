@@ -41,6 +41,8 @@ apt install -y --no-install-recommends \
         libglu1 \
         libsm6 \
         libxv1 \
+        x11-xserver-utils \
+        x11-utils \
         x11-xkb-utils \
         xauth \
         xfonts-base \
