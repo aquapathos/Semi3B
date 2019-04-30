@@ -41,13 +41,12 @@ apt install -y --no-install-recommends \
         libglu1 \
         libsm6 \
         libxv1 \
+        x11-xkb-utils \
         x11-xserver-utils \
         x11-utils \
-        x11-xkb-utils \
         xauth \
         xfonts-base \
         xkb-data \
-        openbox \
         scrot \
         xterm \
         xvfb \
@@ -55,7 +54,8 @@ apt install -y --no-install-recommends \
         xtightvncviewer \
         mesa-utils \
         python-opengl \
-        xfce4-terminal \
+        xfce4 \
+        xfce4-goodies \
     > /dev/null
     
 cd ${CWD}
