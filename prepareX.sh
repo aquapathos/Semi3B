@@ -86,4 +86,3 @@ keycode 116 = Down
 keycode 113 = Left
 keycode 114 = Right
 EOS
-xmodmap ~/.Xmodmap
