@@ -1,21 +1,20 @@
-apt update && apt upgrade && apt install -y --no-install-recommends libgtkglext1 libpango1.0-0 libpangox-1.0-0 libgtk2.0-0 
+apt update
+# apt upgrade 
+apt install -y -q --no-install-recommends libgtkglext1 libpango1.0-0 libpangox-1.0-0 libgtk2.0-0 
 
-# VIRTUALGL_VERSION=2.6.1
 TURBOVNC_VERSION=2.2.1
-LIBJPEG_VERSION=2.0.0
+LIBJPEG_VERSION=2.0.2
 NOVNC_VERSION=1.0.0
 WEBSOCKIFY_VERSION=0.8.0
 ANYDESK_VERSION=4.0.1-1
 
-
 CWD=$(pwd)
 mkdir -p /opt
 
-# TurboVNC + VirtualGL
+# TurboVNC+anydesk
 cd /tmp
 curl -fsSL -O https://sourceforge.net/projects/turbovnc/files/${TURBOVNC_VERSION}/turbovnc_${TURBOVNC_VERSION}_amd64.deb
 curl -fsSL -O https://sourceforge.net/projects/libjpeg-turbo/files/${LIBJPEG_VERSION}/libjpeg-turbo-official_${LIBJPEG_VERSION}_amd64.deb
-# curl -fsSL -O https://sourceforge.net/projects/virtualgl/files/${VIRTUALGL_VERSION}/virtualgl_${VIRTUALGL_VERSION}_amd64.deb
 curl -fsSL -O https://download.anydesk.com/linux/anydesk_${ANYDESK_VERSION}_amd64.deb
 dpkg -i *.deb
 sed -i 's/$host:/unix:/g' /opt/TurboVNC/bin/vncserver
@@ -33,8 +32,7 @@ cd /opt/websockify
 make  > /dev/null
 
 # X11 
-# apt update && apt upgrade
-apt install -y --no-install-recommends \
+apt install -y -q  \
         ca-certificates \
         vim.tiny \
         nano \
@@ -64,15 +62,10 @@ apt install -y --no-install-recommends \
 cd ${CWD}
 
 
-#         curl \
-
-# Xvfb (仮想ディスプレイ)
-# apt-get -q -y install xvfb > /dev/null
-
 # Web ブラウザ（Epiphany）
 add-apt-repository -r -y ppa:gnome3-team/gnome3 > /dev/null
 add-apt-repository -y ppa:gnome3-team/gnome3 > /dev/null
-apt-get -q -y install epiphany-browser > /dev/null
+apt -q -y install epiphany-browser > /dev/null
 
 # Ngrok
 mkdir -p /content/.vnc
@@ -89,3 +82,7 @@ keycode 116 = Down
 keycode 113 = Left
 keycode 114 = Right
 EOS
+
+export DISPLAY=:1 
+/opt/websockify/run 5901 --web=/opt/noVNC --wrap-mode=ignore -- /opt/TurboVNC/bin/vncserver :1 -depth 24 -geometry 1600x900 -securitytypes otp -otp -noxstartup > /content/.vnc/stdout 2>&1 &
+xmodmap ~/.Xmodmap
